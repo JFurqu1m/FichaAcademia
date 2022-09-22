@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YeeU/cxPWwFmzQNjtyAn/7rVavBOW/sb7LXpvM9UA+zTq9WwBbPIAceaVC+VlrtJ6CL7z1C8BjhErCSVw8xDUQ==",
+  "dgSpecHash": "Xjjwm5k2NWdQrUn67hGj/eRt9Hfl46w67sdThuSpVLZ8Z7dAw/4MsifSWwGskJBZMSyz7qB2bWfOm67SCi+XzQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\JFurqu1m\\source\\repos\\FichaAcademia\\FichaAcademia.Dominio\\FichaAcademia.Dominio.csproj",
+  "projectFilePath": "C:\\Users\\JFurqu1m\\Desktop\\Course\\FichaAcademia\\FichaAcademia.Dominio\\FichaAcademia.Dominio.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\JFurqu1m\\.nuget\\packages\\microsoft.netcore.app\\2.1.0\\microsoft.netcore.app.2.1.0.nupkg.sha512",
     "C:\\Users\\JFurqu1m\\.nuget\\packages\\microsoft.netcore.dotnetapphost\\2.1.0\\microsoft.netcore.dotnetapphost.2.1.0.nupkg.sha512",

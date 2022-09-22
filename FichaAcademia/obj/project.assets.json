@@ -4351,7 +4351,9 @@
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
           "FichaAcademia.Dominio": "1.0.0",
-          "Microsoft.EntityFrameworkCore": "2.1.14"
+          "Microsoft.EntityFrameworkCore": "2.1.14",
+          "Microsoft.EntityFrameworkCore.Relational": "2.1.1",
+          "Microsoft.EntityFrameworkCore.SqlServer": "2.1.0"
         },
         "compile": {
           "bin/placeholder/FichaAcademia.AcessoDados.dll": {}
@@ -11948,11 +11950,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\JFurqu1m\\source\\repos\\FichaAcademia\\FichaAcademia\\FichaAcademia.csproj",
+      "projectUniqueName": "C:\\Users\\JFurqu1m\\Desktop\\Course\\FichaAcademia\\FichaAcademia\\FichaAcademia.csproj",
       "projectName": "FichaAcademia",
-      "projectPath": "C:\\Users\\JFurqu1m\\source\\repos\\FichaAcademia\\FichaAcademia\\FichaAcademia.csproj",
+      "projectPath": "C:\\Users\\JFurqu1m\\Desktop\\Course\\FichaAcademia\\FichaAcademia\\FichaAcademia.csproj",
       "packagesPath": "C:\\Users\\JFurqu1m\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\JFurqu1m\\source\\repos\\FichaAcademia\\FichaAcademia\\obj\\",
+      "outputPath": "C:\\Users\\JFurqu1m\\Desktop\\Course\\FichaAcademia\\FichaAcademia\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
@@ -11973,11 +11975,11 @@
         "netcoreapp2.1": {
           "targetAlias": "netcoreapp2.1",
           "projectReferences": {
-            "C:\\Users\\JFurqu1m\\source\\repos\\FichaAcademia\\FichaAcademia.AcessoDados\\FichaAcademia.AcessoDados.csproj": {
-              "projectPath": "C:\\Users\\JFurqu1m\\source\\repos\\FichaAcademia\\FichaAcademia.AcessoDados\\FichaAcademia.AcessoDados.csproj"
+            "C:\\Users\\JFurqu1m\\Desktop\\Course\\FichaAcademia\\FichaAcademia.AcessoDados\\FichaAcademia.AcessoDados.csproj": {
+              "projectPath": "C:\\Users\\JFurqu1m\\Desktop\\Course\\FichaAcademia\\FichaAcademia.AcessoDados\\FichaAcademia.AcessoDados.csproj"
             },
-            "C:\\Users\\JFurqu1m\\source\\repos\\FichaAcademia\\FichaAcademia.Dominio\\FichaAcademia.Dominio.csproj": {
-              "projectPath": "C:\\Users\\JFurqu1m\\source\\repos\\FichaAcademia\\FichaAcademia.Dominio\\FichaAcademia.Dominio.csproj"
+            "C:\\Users\\JFurqu1m\\Desktop\\Course\\FichaAcademia\\FichaAcademia.Dominio\\FichaAcademia.Dominio.csproj": {
+              "projectPath": "C:\\Users\\JFurqu1m\\Desktop\\Course\\FichaAcademia\\FichaAcademia.Dominio\\FichaAcademia.Dominio.csproj"
             }
           }
         }

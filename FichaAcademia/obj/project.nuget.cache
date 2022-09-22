@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "173q474DGrwpH2hwdVe3pNMcrbjBV1syZsmESpeasTdJt5VP+A5BmmwIMR0tB5IE9O2ZERXH5vQNc6rrFaUgGQ==",
+  "dgSpecHash": "WAvEayoMSl0ru719+s+ChomNvt8sRlSkPRtKBt4vjtBL4g+pPHi+GkvfJ4gj35siCJGw8QXtGRHKuWT0gOUAkQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\JFurqu1m\\source\\repos\\FichaAcademia\\FichaAcademia\\FichaAcademia.csproj",
+  "projectFilePath": "C:\\Users\\JFurqu1m\\Desktop\\Course\\FichaAcademia\\FichaAcademia\\FichaAcademia.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\JFurqu1m\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Users\\JFurqu1m\\.nuget\\packages\\microsoft.aspnetcore\\2.1.1\\microsoft.aspnetcore.2.1.1.nupkg.sha512",

@@ -16,7 +16,7 @@ namespace FichaAcademia.Dominio.Models
         [DataType(DataType.MultilineText)]
         public string Descricao { get; set; }
 
-        public ICollection<Aluno> ALunos { get; set; }
+        public ICollection<Aluno> Alunos { get; set; }
 
     }
 }
