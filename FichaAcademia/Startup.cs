@@ -1,4 +1,6 @@
 ﻿using FichaAcademia.AcessoDados;
+using FichaAcademia.AcessoDados.Interfaces;
+using FichaAcademia.AcessoDados.Repositorios;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -29,6 +31,8 @@ namespace FichaAcademia
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<Contexto>(opcoes => opcoes.UseSqlServer(Configuration.GetConnectionString("Conexao")));
+
+            services.AddTransient<ICategoriaExercicioRepositorio, CategoriaExercicioRepositorio>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
