@@ -7,3 +7,4 @@ C:\Users\JFurqu1m\Desktop\Course\FichaAcademia\FichaAcademia.Dominio\obj\Debug\n
 C:\Users\JFurqu1m\Desktop\Course\FichaAcademia\FichaAcademia.Dominio\obj\Debug\netcoreapp2.1\FichaAcademia.Dominio.csproj.CoreCompileInputs.cache
 C:\Users\JFurqu1m\Desktop\Course\FichaAcademia\FichaAcademia.Dominio\obj\Debug\netcoreapp2.1\FichaAcademia.Dominio.dll
 C:\Users\JFurqu1m\Desktop\Course\FichaAcademia\FichaAcademia.Dominio\obj\Debug\netcoreapp2.1\FichaAcademia.Dominio.pdb
+C:\Users\JFurqu1m\Desktop\Course\FichaAcademia\FichaAcademia.Dominio\obj\Debug\netcoreapp2.1\FichaAcademia.Dominio.csproj.AssemblyReference.cache
