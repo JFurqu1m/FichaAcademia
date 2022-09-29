@@ -37,3 +37,6 @@ C:\Users\JFurqu1m\Desktop\Course\FichaAcademia\FichaAcademia\obj\Debug\netcoreap
 C:\Users\JFurqu1m\Desktop\Course\FichaAcademia\FichaAcademia\obj\Debug\netcoreapp2.1\Razor\Views\CategoriasExercicios\Edit.cshtml.g.cs
 C:\Users\JFurqu1m\Desktop\Course\FichaAcademia\FichaAcademia\obj\Debug\netcoreapp2.1\Razor\Views\CategoriasExercicios\Index.cshtml.g.cs
 C:\Users\JFurqu1m\Desktop\Course\FichaAcademia\FichaAcademia\obj\Debug\netcoreapp2.1\Razor\Views\Administradores\Login.cshtml.g.cs
+C:\Users\JFurqu1m\Desktop\Course\FichaAcademia\FichaAcademia\obj\Debug\netcoreapp2.1\Razor\Views\Exercicios\Create.cshtml.g.cs
+C:\Users\JFurqu1m\Desktop\Course\FichaAcademia\FichaAcademia\obj\Debug\netcoreapp2.1\Razor\Views\Exercicios\Edit.cshtml.g.cs
+C:\Users\JFurqu1m\Desktop\Course\FichaAcademia\FichaAcademia\obj\Debug\netcoreapp2.1\Razor\Views\Exercicios\Index.cshtml.g.cs
