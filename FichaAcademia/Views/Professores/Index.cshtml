@@ -1,19 +1,28 @@
-﻿@model IEnumerable<FichaAcademia.Dominio.Models.Exercicio>
+﻿@model IEnumerable<FichaAcademia.Dominio.Models.Professor>
 
 @{
-    ViewData["Title"] = "Exercícios ";
+    ViewData["Title"] = "Professores Cadastrados";
 }
 
-<h4>Exercícios <a asp-action="Create" class="btn-small green darken-2" style="margin-left:50px">Novo exercício</a></h4>
+<h5>Professores Cadastrados</h5>
 
+<p>
+    <a asp-action="Create" class="btn-small green darken-2">Novo Professor</a>
+</p>
 <table class="table striped hover highlight">
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Foto)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
-                Categoria
+                @Html.DisplayNameFor(model => model.Telefone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Turno)
             </th>
             <th></th>
         </tr>
@@ -23,22 +32,26 @@
         {
             <tr>
                 <td>
+                    <img src="@Url.Content(item.Foto)" class="circle" height="100" width="150" />
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.Nome)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.CategoriaExercicio.Nome)
+                    @Html.DisplayFor(modelItem => item.Telefone)
                 </td>
                 <td>
-                    <div class="" style="text-align:end;margin-right:15px">
-                        <a asp-action="Edit" asp-route-id="@item.ExercicioId" class="btn-small light-blue darken-2">Atualizar</a> &nbsp;
-
-                        <a onclick="ExibirModal(@item.ExercicioId, '@item.Nome')" class="btn-small red darken-2">Excluir</a>
-                    </div>
+                    @Html.DisplayFor(modelItem => item.Turno)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ProfessorId" class="btn-small light-blue darken-2">Atualizar</a> &nbsp;
+                    <a onclick="ExibirModal(@item.ProfessorId, '@item.Nome')" class="btn-small red darken-2">Excluir</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
 
 <div id="modal1" class="modal">
     <div class="modal-content">
@@ -67,7 +80,7 @@
             $(".btnConfirmar").on('click', function () {
                 $.ajax({
                     method: "POST",
-                    url: "/Exercicios/Delete",
+                    url: "/Professores/Delete",
                     data: { id: id },
                     success: function () {
                         location.reload();
