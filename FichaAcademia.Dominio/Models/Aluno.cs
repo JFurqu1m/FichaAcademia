@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
@@ -11,6 +12,7 @@ namespace FichaAcademia.Dominio.Models
 
         [Required(ErrorMessage ="Campo obragatório")]
         [StringLength(100,ErrorMessage ="Use menos caracteres!")]
+        [Remote("AlunoExiste", "Alunos", AdditionalFields = "AlunoId")]
         public string NomeCompleto { get; set; }
 
         [Required(ErrorMessage = "Campo obragatório")]
