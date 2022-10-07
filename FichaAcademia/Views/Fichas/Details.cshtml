@@ -1,12 +1,13 @@
 ﻿@model FichaAcademia.Dominio.Models.Ficha
 
+
 @{
     ViewData["Title"] = "Detalhes da ficha " + Model.Nome;
 }
 
 <div class="collection">
     <div class="collection-item">
-        @await  Component.InvokeAsync("DadosAluno", Model.AlunoId)
+        @await Component.InvokeAsync("DadosAluno", Model.AlunoId)
     </div>
 
     <div class="row collection-item">
@@ -22,7 +23,7 @@
 
 <div class="collection">
     <div class="collection-item">
-        @await  Component.InvokeAsync("ListagemExercicioFicha", Model.FichaId)
+        @await Component.InvokeAsync("ListagemExercicioFicha", Model.FichaId)
     </div>
 </div>
 

@@ -109,13 +109,13 @@ namespace FichaAcademia.Controllers
             if(FichaId == 0)
             {
                 if (await _fichaRepositorio.FichaExiste(Nome))
-                    Json("Ficha já cadastrada");
+                   return  Json("Ficha já cadastrada");
 
                 return Json(true);
             } else
             {
                 if (await _fichaRepositorio.FichaExiste(Nome, FichaId))
-                    Json("Ficha já cadastrada");
+                  return  Json("Ficha já cadastrada");
 
                 return Json(true);
             }
