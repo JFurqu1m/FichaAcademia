@@ -15,9 +15,11 @@ namespace FichaAcademia.Controllers
     {
         private readonly IExercicioRepositorio _exercicioRepositorio;
         private readonly ICategoriaExercicioRepositorio _categoriaExercicioRepositorio;
+        private readonly ILIstaExercicioRepositorio _lIstaExercicioRepositorio;
 
-        public ExerciciosController(IExercicioRepositorio exercicioRepositorio, ICategoriaExercicioRepositorio categoriaExercicioRepositorio)
+        public ExerciciosController(IExercicioRepositorio exercicioRepositorio, ICategoriaExercicioRepositorio categoriaExercicioRepositorio, ILIstaExercicioRepositorio lIstaExercicioRepositorio)
         {
+            _lIstaExercicioRepositorio = lIstaExercicioRepositorio;
             _exercicioRepositorio = exercicioRepositorio;
             _categoriaExercicioRepositorio = categoriaExercicioRepositorio;
         }
@@ -28,9 +30,43 @@ namespace FichaAcademia.Controllers
             return View(await _exercicioRepositorio.PegarTodos());
         }
 
+        public async Task<IActionResult> Listagem(int FichaId, int AlunoId)
+        {
+            ViewData["FichaId"] = FichaId;
+            ViewData["AlunoId"] = AlunoId;
+
+            return View(await _exercicioRepositorio.PegarTodos());
+        }
+
+        public async Task<IActionResult> AdicionarExercicio(int exercicioId, int frequencia, int repeticoes, int carga, int fichaId)
+        {
+            if (await _lIstaExercicioRepositorio.ExercicioExisteNaFicha(exercicioId))
+                return Json(false);
+
+            ListaExercicio listaExercicio = new ListaExercicio
+            {
+                ExercicioId = exercicioId,
+                Frequencia = frequencia,
+                Repeticoes = repeticoes,
+                Carga = carga,
+                FichaId = fichaId
+            };
+
+            if (ModelState.IsValid)
+            {
+                await _lIstaExercicioRepositorio.Inserir(listaExercicio);
+                return Json(true);
+            } else
+            {
+                return Json(false);
+            }
+
+
+        }
+
         public async Task<IActionResult> Create()
         {
-            ViewData["CategoriaExercicioId"] = new SelectList( _categoriaExercicioRepositorio.PegarTodos(), "CategoriaExercicioId", "Nome");
+            ViewData["CategoriaExercicioId"] = new SelectList(_categoriaExercicioRepositorio.PegarTodos(), "CategoriaExercicioId", "Nome");
             return View();
         }
 
@@ -43,7 +79,7 @@ namespace FichaAcademia.Controllers
                 await _exercicioRepositorio.Inserir(exercicio);
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoriaExercicioId"] = new SelectList( _categoriaExercicioRepositorio.PegarTodos(), "CategoriaExercicioId", "Nome", exercicio.CategoriaExercicioId);
+            ViewData["CategoriaExercicioId"] = new SelectList(_categoriaExercicioRepositorio.PegarTodos(), "CategoriaExercicioId", "Nome", exercicio.CategoriaExercicioId);
             return View(exercicio);
         }
 
@@ -56,7 +92,7 @@ namespace FichaAcademia.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoriaExercicioId"] = new SelectList( _categoriaExercicioRepositorio.PegarTodos(), "CategoriaExercicioId", "Nome", exercicio.CategoriaExercicioId);
+            ViewData["CategoriaExercicioId"] = new SelectList(_categoriaExercicioRepositorio.PegarTodos(), "CategoriaExercicioId", "Nome", exercicio.CategoriaExercicioId);
             return View(exercicio);
         }
 
@@ -76,7 +112,7 @@ namespace FichaAcademia.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoriaExercicioId"] = new SelectList( _categoriaExercicioRepositorio.PegarTodos(), "CategoriaExercicioId", "Nome", exercicio.CategoriaExercicioId);
+            ViewData["CategoriaExercicioId"] = new SelectList(_categoriaExercicioRepositorio.PegarTodos(), "CategoriaExercicioId", "Nome", exercicio.CategoriaExercicioId);
             return View(exercicio);
         }
 
