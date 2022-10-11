@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using FichaAcademia.AcessoDados;
 using FichaAcademia.Dominio.Models;
 using FichaAcademia.AcessoDados.Interfaces;
+using Rotativa.AspNetCore;
 
 namespace FichaAcademia.Controllers
 {
@@ -41,6 +42,17 @@ namespace FichaAcademia.Controllers
             return View(ficha);
         }
 
+        public async Task<IActionResult> VisualizarPDF(int FichaId)
+        {
+            var ficha = await _fichaRepositorio.PegarFichaPeloId(FichaId);
+
+            if (ficha == null)
+            {
+                return NotFound();
+            }
+
+            return new ViewAsPdf("PDF", ficha) { FileName = "Ficha.PDF" };
+        }
        
         public IActionResult Create(int AlunoId)
         {
