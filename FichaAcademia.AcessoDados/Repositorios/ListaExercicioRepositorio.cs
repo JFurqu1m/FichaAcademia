@@ -17,9 +17,9 @@ namespace FichaAcademia.AcessoDados.Repositorios
             _contexto = contexto;
         }
 
-        public async Task<bool> ExercicioExisteNaFicha(int exercicioId)
+        public async Task<bool> ExercicioExisteNaFicha(int exercicioId, int fichaID)
         {
-            return await _contexto.ListasExercicios.AnyAsync(e => e.ExercicioId == exercicioId);
+            return await _contexto.ListasExercicios.AnyAsync(e => e.ExercicioId == exercicioId && e.FichaId == fichaID);
         }
     }
 

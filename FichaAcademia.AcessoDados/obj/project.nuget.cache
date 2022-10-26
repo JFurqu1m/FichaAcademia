@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Dp0GCpzAm5gP+lvcVX4Te/JLBrGhZyNYVXhpeP6/pTjLeEtEdMaRzqefNCmTIAw7HTGgi3NkINtwL2l0uTjxAA==",
+  "dgSpecHash": "BktrJWy6N4eVcxzCayNilrKQvPe5cIk2jXk8NawA+U/TCv6BEnMV8eKRf2/niPaSjuql8cXxpy6Nu+wf/h8xzQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\JFurqu1m\\Desktop\\Course\\FichaAcademia\\FichaAcademia.AcessoDados\\FichaAcademia.AcessoDados.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\JFurqu1m\\.nuget\\packages\\buildbundlerminifier-typescript\\2.1.258\\buildbundlerminifier-typescript.2.1.258.nupkg.sha512",
     "C:\\Users\\JFurqu1m\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.1.0\\microsoft.aspnetcore.antiforgery.2.1.0.nupkg.sha512",
     "C:\\Users\\JFurqu1m\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.1.0\\microsoft.aspnetcore.authentication.abstractions.2.1.0.nupkg.sha512",
     "C:\\Users\\JFurqu1m\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.1.0\\microsoft.aspnetcore.authentication.core.2.1.0.nupkg.sha512",

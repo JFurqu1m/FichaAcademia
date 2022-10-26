@@ -1,6 +1,7 @@
 ﻿using FichaAcademia.AcessoDados.Interfaces;
 using FichaAcademia.ViewModels;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -59,6 +60,7 @@ namespace FichaAcademia.Controllers
             return RedirectToAction("Index", "Alunos");
         }
 
+        [Authorize]
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();

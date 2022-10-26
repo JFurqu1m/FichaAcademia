@@ -44,6 +44,10 @@
         "netcoreapp2.1": {
           "targetAlias": "netcoreapp2.1",
           "dependencies": {
+            "BuildBundlerMinifier-Typescript": {
+              "target": "Package",
+              "version": "[2.1.258, )"
+            },
             "Microsoft.AspNetCore.Mvc": {
               "target": "Package",
               "version": "[2.1.0, )"

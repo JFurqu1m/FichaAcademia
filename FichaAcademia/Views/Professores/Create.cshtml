@@ -4,13 +4,24 @@
     ViewData["Title"] = "Novo Professor";
 }
 
+<style>
+    input{
+        color:whitesmoke
+    }
+
+    label{
+        color:whitesmoke
+    }
+
+</style>
+
 <div class="container">
     <div class="row">
         <div class="col s12">
-            <div class="collection with-header">
-                <h6 class="collection-header">Novo Professor</h6>
+            <div class="collection with-header grey darken-3">
+                <h6 class="collection-header grey darken-3" style="color:whitesmoke">Novo Professor</h6>
                 <form asp-action="Create" enctype="multipart/form-data">
-                    <div class="collection-item">
+                    <div class="collection-item grey darken-3">
                         <div asp-validation-summary="ModelOnly" class="red-text darken-3"></div>
                         <div class="row">
                             <div class="input-field">
@@ -19,39 +30,49 @@
                                 <span asp-validation-for="Nome" class="red-text darken-3"></span>
                             </div>
                         </div>
-                        <img id="Imagem" src="#" alt="Foto" />
+
                         <div class="row">
-                            <div class="file-field input-field">
-                                <div class="btn-small">
-                                    <span>Selecione uma imagem</span>
-                                    <input asp-for="Foto" type="file" name="arquivo" onchange="CarregarImagem(this)" />
-                                    <span asp-validation-for="Nome" class="red-text darken-3"></span>
-                                </div>
-                                <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text" placeholder="Faça o upload da imagem" />
-                                </div>
-
+                            <div class="col s6">
+                                <img id="Imagem" src="#" alt="Foto" class="circle" height="160" width="170" />
                             </div>
-
-                            <div class="row">
-                                <div class="input-field">
-                                    <input asp-for="Telefone" class="validate" id="Telefone" />
-                                    <label for="Nome">Telefone</label>
-                                    <span asp-validation-for="Telefone" class="red-text darken-3"></span>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="input-field">
-                                    <input asp-for="Turno" class="validate" id="Turno" />
-                                    <label for="Nome">Turno</label>
-                                    <span asp-validation-for="Turno" class="red-text darken-3"></span>
+                            <div class="col s6">
+                                <div class="file-field input-field">
+                                    <div class="row">
+                                        <div class="btn-small purple darken-1" style="margin-left:10px;border-radius:15px">
+                                            <span>Selecione uma imagem</span>
+                                            <input asp-for="Foto" type="file" name="arquivo" onchange="CarregarImagem(this)" />
+                                            <span asp-validation-for="Nome" class="red-text darken-3"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="file-path-wrapper" style="margin-right:95px">
+                                            <input class="file-path validate" style="text-align:center" type="text" placeholder="Faça o upload da imagem" />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
-                        <div class="collection-item">
-                            <input type="submit" value="Salvar" class="btn-small teal darken-3" /> &nbsp;
+
+                       
+
+                        <div class="row">
+                            <div class="input-field">
+                                <input asp-for="Telefone" class="validate" id="Telefone" />
+                                <label for="Nome">Telefone</label>
+                                <span asp-validation-for="Telefone" class="red-text darken-3"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field">
+                                <input asp-for="Turno" class="validate" id="Turno" />
+                                <label for="Nome">Turno</label>
+                                <span asp-validation-for="Turno" class="red-text darken-3"></span>
+                            </div>
+                        </div>
+
+                        <div class="collection-item grey darken-3" style="text-align:right">
+                            <input type="submit" value="Salvar" class="btn-small purple darken-1" /> &nbsp;
                             <a asp-action="Index" class="btn-small grey darken-1">Voltar</a>
                         </div>
                     </div>

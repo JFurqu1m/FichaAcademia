@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using FichaAcademia.AcessoDados;
 using FichaAcademia.Dominio.Models;
 using FichaAcademia.AcessoDados.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FichaAcademia.Controllers
 {
+    [Authorize]
     public class ObjetivosController : Controller
     {
         private readonly IObjetivoRepositorio _objetivoRepositorio;
@@ -78,11 +80,11 @@ namespace FichaAcademia.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<JsonResult> Delete(int id)
         {
 
             await _objetivoRepositorio.Excluir(id);
-            return RedirectToAction(nameof(Index));
+            return Json("Objetivo excluído com sucesso!");
         }
 
         public async Task<JsonResult> ObjetivoExiste(string Nome, int ObjetivosId)

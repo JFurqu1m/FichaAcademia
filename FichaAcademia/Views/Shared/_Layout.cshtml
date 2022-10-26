@@ -1,13 +1,18 @@
 ﻿@using Microsoft.AspNetCore.Http
 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 
+<style>
+    body {
+        background-color: #212121;
+    }
+</style>
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - FichaAcademia</title>
+    <title>Hero Academy - @ViewData["Title"]</title>
 
     <environment include="Development">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -23,23 +28,61 @@
 <body>
 
     <nav>
-        <div class="nav-wrapper grey darken-3 body-content">
-            <a href="#" class="brand-logo">Fichas de Academia</a>
+        <div class="nav-wrapper grey darken-4 body-content">
+            <a href="#" class="brand-logo" style="margin-top:10px">
+                <img height="55" width="150" src="~/Imagens/MyHeroAcademy_LogoMarca_Roxo.png" />
+            </a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
 
                 @if (!User.Identity.IsAuthenticated)
                 {
-                    <li><a asp-controller="Administradores" asp-action="Login">Login</a></li>
+                    //<li><a asp-controller="Administradores" asp-action="Login">Login</a></li>
                 }
                 else
                 {
-                    <li><a asp-controller="Objetivos" asp-action="Index">Objetivos</a></li>
-                    <li><a asp-controller="Exercicios" asp-action="Index">Exercicios</a></li>
-                    <li><a asp-controller="CategoriaExercicios" asp-action="Index">Categorias</a></li>
-                    <li><a asp-controller="Professores" asp-action="Index">Professores</a></li>
-                    <li><a asp-controller="Alunos" asp-action="Index">Alunos</a></li>
-                    <li>Bem vindo, @HttpContextAccessor.HttpContext.Session.GetString("Usuario")</li>
-                    <li><a asp-controller="Administradores" asp-action="Logout">Logout</a></li>
+                    <li style="text-align:center">
+                        <a asp-controller="Alunos" asp-action="Index"
+                           style="font-family: Andale Mono, monospace;">
+                            Alunos
+                            <i class="tiny material-icons right">accessibility</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Professores" asp-action="Index"
+                           style="font-family: Andale Mono, monospace;">
+                            Professores
+                            <i class="tiny material-icons right">supervisor_account</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Objetivos" asp-action="Index"
+                           style="font-family: Andale Mono, monospace; ">
+                            Objetivos
+
+                            <img width="21" src="~/Imagens/objective.png" />
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Exercicios" asp-action="Index"
+                           style="font-family: Andale Mono, monospace; ">
+                            Exercicios
+                            <i class="tiny material-icons right">fitness_center</i>
+                        </a>
+                    </li>
+                    <li style="margin-right:80px">
+                        <a asp-controller="CategoriasExercicios" asp-action="Index"
+                           style="font-family: Andale Mono, monospace; ">
+                            Categorias de Exercícios
+                            <i class="tiny material-icons right">collections_bookmark</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Administradores" asp-action="Logout"
+                           style="font-family: Andale Mono, monospace">
+                            Sair
+                            <i class="tiny material-icons right">exit_to_app</i>
+                        </a>
+                    </li>
                 }
 
 
@@ -52,7 +95,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2022 - FichaAcademia</p>
+            <p style="color: white; font-family: Courier, monospace">&copy; 2022 - <strong>By JFurqu1m</strong></p>
         </footer>
     </div>
 
@@ -63,8 +106,8 @@
     </environment>
     <environment exclude="Development">
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"></script>
-              
-        
+
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>

@@ -4,13 +4,40 @@
     ViewData["Title"] = "Novo Exercício";
 }
 
+<style>
+    h6 {
+        color: whitesmoke;
+    }
+
+    input {
+        color: whitesmoke;
+    }
+
+    label {
+        color: whitesmoke;
+    }
+
+
+    select {
+        background-color: dimgrey;
+        color: whitesmoke
+    }
+
+    select option{
+        background-color:dimgrey;
+        color:whitesmoke
+    }
+
+
+</style>
+
 <div class="container">
     <div class="row">
         <div class="col s12">
-            <div class="collection with-header">
-                <h6 class="collection-header">Novo Exercício</h6>
+            <div class="collection with-header grey darken-3">
+                <h6 class="collection-header grey darken-3">Novo Exercício</h6>
                 <form asp-action="Create">
-                    <div class="collection-item">
+                    <div class="collection-item grey darken-3">
                         <div asp-validation-summary="ModelOnly" class="red-text darken-3"></div>
                         <div class="row">
                             <div class="input-field">
@@ -22,15 +49,13 @@
 
                         <div class="row">
                             <div class="input-field">
-
-
                                 <select asp-for="CategoriaExercicioId" class="browser-default" asp-items="ViewBag.CategoriaExercicioId"></select>
                                 <span asp-validation-for="CategoriaExercicioId" class="red-text darken-3"></span>
                             </div>
                         </div>
 
-                        <div class="collection-item">
-                            <input type="submit" value="Salvar" class="btn-small teal darken-3" /> &nbsp;
+                        <div class="collection-item grey darken-3" style="text-align:right">
+                            <input type="submit" value="Salvar" class="btn-small purple darken-1" /> &nbsp;
                             <a asp-action="Index" class="btn-small grey darken-1">Voltar</a>
                         </div>
                     </div>

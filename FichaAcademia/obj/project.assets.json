@@ -2,6 +2,9 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.1": {
+      "BuildBundlerMinifier-Typescript/2.1.258": {
+        "type": "package"
+      },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
         "type": "package",
         "dependencies": {
@@ -4647,6 +4650,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
+          "BuildBundlerMinifier-Typescript": "2.1.258",
           "FichaAcademia.Dominio": "1.0.0",
           "Microsoft.EntityFrameworkCore": "2.1.14",
           "Microsoft.EntityFrameworkCore.Relational": "2.1.1",
@@ -4663,6 +4667,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
+          "BuildBundlerMinifier-Typescript": "2.1.258",
           "Microsoft.AspNetCore.Mvc": "2.1.0"
         },
         "compile": {
@@ -4675,6 +4680,23 @@
     }
   },
   "libraries": {
+    "BuildBundlerMinifier-Typescript/2.1.258": {
+      "sha512": "GKfuqAEBxRwjiEWVu3X6AFPFA72ZOc7KEhAtcAtMgvVdWyMnhI3+jgoVUplHQ3vbZ6eYfCJJZvqQC9SW74/LoQ==",
+      "type": "package",
+      "path": "buildbundlerminifier-typescript/2.1.258",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/BuildBundlerMinifier.targets",
+        "buildbundlerminifier-typescript.2.1.258.nupkg.sha512",
+        "buildbundlerminifier-typescript.nuspec",
+        "tools/BundlerMinifier.exe",
+        "tools/BundlerMinifier.pdb",
+        "tools/NUglify.dll",
+        "tools/Newtonsoft.Json.dll"
+      ]
+    },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
       "sha512": "owAlEIUZXWSnkK8Z1c+zR47A0X6ykF4XjbPok4lQKNuciUfHLGPd6QnI+rt/8KlQ17PmF+I4S3f+m+Qe4IvViw==",
       "type": "package",
@@ -12701,6 +12723,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "BuildBundlerMinifier-Typescript >= 2.1.258",
       "FichaAcademia.AcessoDados >= 1.0.0",
       "FichaAcademia.Dominio >= 1.0.0",
       "Microsoft.AspNetCore >= 2.1.7",
@@ -12770,6 +12793,10 @@
       "netcoreapp2.1": {
         "targetAlias": "netcoreapp2.1",
         "dependencies": {
+          "BuildBundlerMinifier-Typescript": {
+            "target": "Package",
+            "version": "[2.1.258, )"
+          },
           "Microsoft.AspNetCore": {
             "target": "Package",
             "version": "[2.1.7, )"

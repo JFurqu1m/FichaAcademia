@@ -9,9 +9,11 @@ using FichaAcademia.AcessoDados;
 using FichaAcademia.Dominio.Models;
 using FichaAcademia.AcessoDados.Interfaces;
 using Rotativa.AspNetCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FichaAcademia.Controllers
 {
+    [Authorize]
     public class FichasController : Controller
     {
         private readonly IAlunoRepositorio _alunoRepositorio;
@@ -27,12 +29,14 @@ namespace FichaAcademia.Controllers
         public async Task<IActionResult> Index(int AlunoId)
         {
             ViewBag.AlunoId = AlunoId;
+            string alunoNome = _alunoRepositorio.PegarNomeAlunoPeloId(AlunoId);
+            ViewBag.AlunoNome = alunoNome;
             return View(await _fichaRepositorio.PegarTodasFichasAlunoId(AlunoId));
         }
 
         public async Task<IActionResult> Details(int FichaId)
         {
-            var ficha = await _fichaRepositorio.PegarFichaPeloId(FichaId);
+            var ficha = await _fichaRepositorio.PegarFichaAlunoId(FichaId);
                 
             if (ficha == null)
             {
@@ -44,7 +48,7 @@ namespace FichaAcademia.Controllers
 
         public async Task<IActionResult> VisualizarPDF(int FichaId)
         {
-            var ficha = await _fichaRepositorio.PegarFichaPeloId(FichaId);
+            var ficha = await _fichaRepositorio.PegarFichaAlunoId(FichaId);
 
             if (ficha == null)
             {
@@ -81,7 +85,7 @@ namespace FichaAcademia.Controllers
        
         public async Task<IActionResult> Edit(int FichaId)
         {
-            var ficha = await _fichaRepositorio.PegarFichaPeloId(FichaId);
+            var ficha = await _fichaRepositorio.PegarFichaAlunoId(FichaId);
             if (ficha == null)
             {
                 return NotFound();
@@ -116,11 +120,11 @@ namespace FichaAcademia.Controllers
             return Json("Ficha excluída com sucesso.");
         }
 
-        public async Task<JsonResult> FichaExiste(string Nome, int FichaId)
+        public async Task<JsonResult> FichaExiste(string Nome, int FichaId, int AlunoId)
         {
             if(FichaId == 0)
             {
-                if (await _fichaRepositorio.FichaExiste(Nome))
+                if (await _fichaRepositorio.FichaExisteAluno(Nome, AlunoId))
                    return  Json("Ficha já cadastrada");
 
                 return Json(true);

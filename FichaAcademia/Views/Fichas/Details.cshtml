@@ -6,25 +6,32 @@
 }
 
 <div class="collection">
-    <div class="collection-item">
+    <div class="collection-item grey darken-3">
         @await Component.InvokeAsync("DadosAluno", Model.AlunoId)
     </div>
 
-    <div class="row collection-item">
+    <div class="row collection-item grey darken-3" style="text-align:center">
         <div class="col s6">
-            <p><strong>Cadastro : </strong>@Model.Cadastro</p>
+            <p><strong>Cadastro : </strong>@Model.Cadastro.ToShortDateString()</p>
         </div>
 
         <div class="col s6">
-            <p><strong>Validade : </strong>@Model.Validade</p>
+            <p><strong>Validade : </strong>@Model.Validade.ToShortDateString()</p>
         </div>
     </div>
 </div>
 
-<div class="collection">
-    <div class="collection-item">
+<div class="collection  grey darken-3">
+    <div class="collection-item grey darken-3">
         @await Component.InvokeAsync("ListagemExercicioFicha", Model.FichaId)
     </div>
 </div>
 
-<a asp-controller="Fichas" asp-action="Index" asp-route-AlunoId="@Model.AlunoId">Voltar</a>
+<div class="row">
+    <div class="col s12">
+
+    </div>
+</div>
+
+
+<a asp-controller="Fichas" asp-action="Index" asp-route-AlunoId="@Model.AlunoId" class="waves-effect waves-light btn-small grey darken-3" style="border-radius:25px"><i class="material-icons left">arrow_back</i> Voltar para Fichas</a>

@@ -4,16 +4,61 @@
     ViewData["Title"] = "Fichas Cadastradas";
 }
 
-<h5>Fichas Cadastradas</h5>
+<style>
 
-<p>
-    <a asp-action="Create" asp-route-AlunoId="@ViewBag.AlunoId" class="btn-small green darken-2">Nova Ficha</a>
-</p>
-<table class="table hover striped highlight centered">
+    h5 {
+        color: white;
+    }
+
+
+    th {
+        color: whitesmoke;
+        text-align: center;
+    }
+
+    td {
+        color: whitesmoke;
+        text-align: center;
+    }
+
+
+    table.highlight > tbody > tr:hover {
+        background-color: #202020 !important;
+    }
+
+    table.highlight > tbody > tr {
+        color: dimgrey !important;
+    }
+</style>
+
+<div class="row">
+    <div class="col s12">
+        &nbsp;
+    </div>
+</div>
+
+<h5>
+    <label style="color:grey;font-size:x-large">Fichas</label>
+    <i class="tiny material-icons" style="color:grey">chevron_right</i>&nbsp;
+    @ViewBag.AlunoNome &nbsp;
+
+    <a asp-action="Create" asp-route-AlunoId="@ViewBag.AlunoId" class="btn-floating btn-medium waves-effect waves-light purple darken-1 right"
+       data-toggle="tooltip" data-position="right" data-tooltip="Adicionar Nova Ficha"><i class="material-icons">add</i></a>
+</h5>
+
+<div class="row">
+    <div class="col s12">
+        &nbsp;
+    </div>
+</div>
+
+
+
+<table class="table card-panel grey darken-3 hover highlight">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nome)
+                Ficha
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Cadastro)
@@ -31,47 +76,79 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
+                <td width="100px">
                     @Html.DisplayFor(modelItem => item.Nome)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Cadastro)
+                <td width="100px">
+                    <label hidden="hidden">
+                        @Html.DisplayFor(modelItem => item.Cadastro)
+                    </label>
+                    @Convert.ToDateTime(item.Cadastro).ToString("dd/MM/yyyy")
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Validade)
+                <td width="100px">
+                    <label hidden="hidden">
+                        @Html.DisplayFor(modelItem => item.Validade)
+                    </label>
+                    @Convert.ToDateTime(item.Validade).ToString("dd/MM/yyyy")
                 </td>
-                <td>
+                <td width="100px">
                     @Html.DisplayFor(modelItem => item.Aluno.NomeCompleto)
                 </td>
-                <td>
-                    <a asp-action="Edit" asp-route-FichaId="@item.FichaId" class="btn-small light-blue darken-2">Atualizar</a> &nbsp;
-                    <a asp-action="Details" asp-route-FichaId="@item.FichaId" class="btn-small amber darken-3">Detalhes</a> &nbsp;
-                    <a asp-action="Listagem" asp-controller="Exercicios" asp-route-FichaId="@item.FichaId" asp-route-AlunoId="@item.AlunoId" class="btn-small blue-grey darken-1">Novo Exercicio</a>
-                    <a asp-action="VisualizarPDF" asp-route-FichaId="@item.FichaId" class="btn-small red accent-4">PDF</a>
-                    <a onclick="ExibirModal(@item.FichaId, '@item.Nome')" class="btn-small red darken-2">Excluir</a>
+                <td width="200px">
+                    <a asp-action="Edit" asp-route-FichaId="@item.FichaId" class="btn-floating btn-small waves-effect waves-light purple darken-1"
+                       data-toggle="tooltip" data-position="right" data-tooltip="Editar Nome da Ficha"><i class="material-icons">edit</i></a> &nbsp;
+
+                    <a asp-action="Details" asp-route-FichaId="@item.FichaId" class="btn-floating btn-small waves-effect waves-light purple darken-1"
+                       data-toggle="tooltip" data-position="right" data-tooltip="Detalhes da Ficha"><i class="material-icons">description</i></a> &nbsp;
+
+                    <a asp-action="Listagem" asp-controller="Exercicios" asp-route-FichaId="@item.FichaId" asp-route-AlunoId="@item.AlunoId" class="btn-floating btn-small waves-effect waves-light purple darken-1"
+                       data-toggle="tooltip" data-position="right" data-tooltip="Adicionar Exercícios"><i class="material-icons">fitness_center</i></a> &nbsp;
+
+                    <a asp-action="VisualizarPDF" asp-route-FichaId="@item.FichaId" class="btn-small red darken-4" style="border-radius:15px"
+                       data-toggle="tooltip" data-position="bottom" data-tooltip="Gerar PDF da Ficha">PDF</a> &nbsp;
+
+                    <a onclick="ExibirModal(@item.FichaId, '@item.Nome')" class="btn-floating btn-small waves-effect waves-light red darken-4"
+                       data-toggle="tooltip" data-position="right" data-tooltip="Excluir Ficha">
+                        <i class="material-icons">clear</i>
+                    </a>
+
                 </td>
             </tr>
         }
     </tbody>
 </table>
 
-<a asp-controller="Alunos" asp-action="Index">Voltar</a>
+<div class="row">
+    <div class="col s12">
 
-<div id="modal1" class="modal">
-    <div class="modal-content">
-        <h4>Confirmar exclusão</h4>
-        <p>Deseja prosseguir com a exclusão de <b class="nome"></b> ? </p>
-    </div>
-    <div class="modal-footer">
-        <a class="modal-close btn green accent-4">Não</a>
-        <a class="modal-close btn red accent-4 btnConfirmar">Sim</a>
     </div>
 </div>
+
+
+<a asp-controller="Alunos" asp-action="Index" class="waves-effect waves-light btn-small grey darken-3" style="border-radius:25px"><i class="material-icons left">arrow_back</i> Alunos</a>
+
+<div id="modal1" class="modal grey darken-3" style="border-radius:20px;width:35%">
+    <div class="modal-content">
+        <h5 style="color:whitesmoke">Excluir Ficha</h5>
+        <p style="color:whitesmoke">Deseja prosseguir com a exclusão da ficha <b class="nome"></b> ? </p>
+    </div>
+    <div class="modal-footer grey darken-3">
+        <a class="btn-small modal-close btn red darken-4 btnConfirmar" style="border-radius: 25px; ">Sim</a>&nbsp;
+        <a class="btn-small modal-close btn grey darken-2" style="border-radius: 25px; margin-right: 15px">Não</a>
+    </div>
+</div>
+
 
 @section Scripts
 {
 
     <script>
+
+
+
+        $('[data-toggle="tooltip"]').tooltip();
+
+
         $(document).ready(function () {
             $(".modal").modal();
         })

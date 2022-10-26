@@ -1,20 +1,60 @@
 ﻿@model IEnumerable<FichaAcademia.Dominio.Models.Exercicio>
 
 @{
-    ViewData["Title"] = "Escola seus exercicios";
+    ViewData["Title"] = "Escolha Seus Exercícios";
 }
 
-<h5>Escola seus exercicios</h5>
+
+<style>
+
+    h5 {
+        color: white;
+        text-align: right;
+        margin-right: 35px;
+    }
 
 
-<table class="table striped hover highçight">
+    th {
+        color: whitesmoke;
+        text-align: center;
+    }
+
+    td {
+        color: whitesmoke;
+    }
+
+
+    table.highlight > tbody > tr:hover {
+        background-color: #202020 !important;
+    }
+
+    table.highlight > tbody > tr {
+        color: dimgrey !important;
+    }
+</style>
+
+<div class="row">
+    <div class="col s12">
+        &nbsp;
+    </div>
+</div>
+
+<h5>Adicionando Exercícios em @ViewData["FichaName"]  &nbsp; <i class="small material-icons">fitness_center</i></h5>
+
+<div class="row">
+    <div class="col s12">
+
+    </div>
+</div>
+
+<table class="table card-panel grey darken-3 hover highlight">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nome)
+                Exercícios
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CategoriaExercicio)
+                Categoria
             </th>
             <th></th>
         </tr>
@@ -23,14 +63,15 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
+                <td style=" text-align: center;">
                     @Html.DisplayFor(modelItem => item.Nome)
                 </td>
-                <td>
+                <td style=" text-align: center;">
                     @Html.DisplayFor(modelItem => item.CategoriaExercicio.Nome)
                 </td>
                 <td>
-                    <a onclick="ExibirModal(@item.ExercicioId, @ViewData["AlunoId"])" class="btn-small light-blue darken-2">Adicionar</a>
+                    <a onclick="ExibirModal(@item.ExercicioId, @ViewData["FichaId"])"
+                       style="margin-right:45px" class="btn-floating btn-medium waves-effect waves-light purple darken-1 right"><i class="material-icons">add</i></a>
                 </td>
             </tr>
         }
@@ -39,39 +80,47 @@
 
 <a asp-action="Index" asp-controller="Fichas" asp-route-AlunoId="@ViewData["AlunoId"]"></a>
 
+<div class="row">
+    <div class="col s12">
+
+    </div>
+</div>
+
+<a asp-controller="Fichas" asp-action="Index" asp-route-AlunoId="@ViewData["AlunoId"]" class="waves-effect waves-light btn-small grey darken-3" style="border-radius:25px"><i class="material-icons left">arrow_back</i> Fichas de @ViewData["AlunoName"]</a>
+
 
 <div id="modal1" class="modal">
-    <div class="modal-content">
-        <h4>Adicionar Exercicio</h4>
+    <div class="modal-content grey darken-3">
+        <h4 style="color:whitesmoke">Adicionar Exercicio</h4>
 
         <div class="row">
             <div class="input-field col s6">
-                <input id="Frequencia" type="text" class="validate" />
-                <label for="Frequencia">Frequência</label>
+                <input id="Frequencia" type="text" class="validate" style="color:whitesmoke" />
+                <label for="Frequencia" style="color:whitesmoke">Frequência</label>
             </div>
         </div>
 
 
         <div class="row">
             <div class="input-field col s6">
-                <input id="Repeticoes" type="text" class="validate" />
-                <label for="Repeticoes">Repetições</label>
+                <input id="Repeticoes" type="text" class="validate" style="color:whitesmoke" />
+                <label for="Repeticoes" style="color:whitesmoke">Repetições</label>
             </div>
         </div>
 
 
         <div class="row">
             <div class="input-field col s6">
-                <input id="Carga" type="text" class="validate" />
-                <label for="Carga">Carga</label>
+                <input id="Carga" type="text" class="validate" style="color:whitesmoke" />
+                <label for="Carga" style="color:whitesmoke">Carga</label>
             </div>
         </div>
 
 
     </div>
-    <div class="modal-footer">
-        <a class="modal-close btn green accent-4">Não</a>
-        <a class="modal-close btn red accent-4 btnConfirmar">Sim</a>
+    <div class="modal-footer grey darken-3">
+        <a class="btn-small modal-close btn purple darken-1 btnConfirmar" style="border-radius: 25px; ">Adicionar</a>&nbsp;
+        <a class="btn-small modal-close btn grey darken-2" style="border-radius: 25px; margin-right: 15px">Cancelar</a>
     </div>
 </div>
 

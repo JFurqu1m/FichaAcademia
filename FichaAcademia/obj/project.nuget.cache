@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "pEU2ffWqNtrSMqbbOB7o7OcMm8RgF9E8yU2wMRx2g7bJhfHiTlbDqnybhlLRzxlndDyV1+taZVum5kJzyWQVug==",
+  "dgSpecHash": "UQppos90Ebf7pFgm5j8tsK4qgVGiruvBKFwmSweZQRhQgdhIOhi73eoiOBgort2Hq16w/YImHWHrYdck2NNS5Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\JFurqu1m\\Desktop\\Course\\FichaAcademia\\FichaAcademia\\FichaAcademia.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\JFurqu1m\\.nuget\\packages\\buildbundlerminifier-typescript\\2.1.258\\buildbundlerminifier-typescript.2.1.258.nupkg.sha512",
     "C:\\Users\\JFurqu1m\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Users\\JFurqu1m\\.nuget\\packages\\microsoft.aspnetcore\\2.1.7\\microsoft.aspnetcore.2.1.7.nupkg.sha512",
     "C:\\Users\\JFurqu1m\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.1.1\\microsoft.aspnetcore.antiforgery.2.1.1.nupkg.sha512",

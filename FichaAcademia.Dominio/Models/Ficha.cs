@@ -12,7 +12,7 @@ namespace FichaAcademia.Dominio.Models
 
         [Required(ErrorMessage ="Campo obragatório!")]
         [StringLength(50, ErrorMessage ="Use menos caracteres")]
-        [Remote("FichaExiste","Fichas", AdditionalFields = "FichaId")]
+        [Remote("FichaExiste","Fichas", AdditionalFields = "FichaId,AlunoId")]
         public string Nome { get; set; }
 
         public DateTime Cadastro { get; set; }

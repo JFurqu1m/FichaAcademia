@@ -8,20 +8,26 @@ using Microsoft.EntityFrameworkCore;
 using FichaAcademia.AcessoDados;
 using FichaAcademia.Dominio.Models;
 using FichaAcademia.AcessoDados.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FichaAcademia.Controllers
 {
+    [Authorize]
     public class ExerciciosController : Controller
     {
         private readonly IExercicioRepositorio _exercicioRepositorio;
         private readonly ICategoriaExercicioRepositorio _categoriaExercicioRepositorio;
         private readonly ILIstaExercicioRepositorio _lIstaExercicioRepositorio;
+        private readonly IAlunoRepositorio _alunoRepositorio;
+        private readonly IFichaRepositorio _fichaRepositorio;
 
-        public ExerciciosController(IExercicioRepositorio exercicioRepositorio, ICategoriaExercicioRepositorio categoriaExercicioRepositorio, ILIstaExercicioRepositorio lIstaExercicioRepositorio)
+        public ExerciciosController(IExercicioRepositorio exercicioRepositorio, ICategoriaExercicioRepositorio categoriaExercicioRepositorio, ILIstaExercicioRepositorio lIstaExercicioRepositorio, IAlunoRepositorio alunoRepositorio, IFichaRepositorio fichaRepositorio)
         {
             _lIstaExercicioRepositorio = lIstaExercicioRepositorio;
             _exercicioRepositorio = exercicioRepositorio;
             _categoriaExercicioRepositorio = categoriaExercicioRepositorio;
+            _alunoRepositorio = alunoRepositorio;
+            _fichaRepositorio = fichaRepositorio;
         }
 
         public async Task<IActionResult> Index()
@@ -35,12 +41,20 @@ namespace FichaAcademia.Controllers
             ViewData["FichaId"] = FichaId;
             ViewData["AlunoId"] = AlunoId;
 
+            var ficha = await _fichaRepositorio.PegarPeloId(FichaId);
+
+
+
+            string alunoNome = _alunoRepositorio.PegarNomeAlunoPeloId(AlunoId);
+            ViewData["AlunoName"] = alunoNome;
+            ViewData["FichaName"] = ficha.Nome;
+
             return View(await _exercicioRepositorio.PegarTodos());
         }
 
         public async Task<IActionResult> AdicionarExercicio(int exercicioId, int frequencia, int repeticoes, int carga, int fichaId)
         {
-            if (await _lIstaExercicioRepositorio.ExercicioExisteNaFicha(exercicioId))
+            if (await _lIstaExercicioRepositorio.ExercicioExisteNaFicha(exercicioId, fichaId))
                 return Json(false);
 
             ListaExercicio listaExercicio = new ListaExercicio
@@ -117,11 +131,11 @@ namespace FichaAcademia.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<JsonResult> Delete(int id)
         {
             await _exercicioRepositorio.Excluir(id);
 
-            return RedirectToAction(nameof(Index));
+            return Json("Exercício excluído com sucesso!");
         }
 
         public async Task<JsonResult> ExercicioExiste(string nome, int ExercicioId)

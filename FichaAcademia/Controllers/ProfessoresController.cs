@@ -11,9 +11,11 @@ using FichaAcademia.AcessoDados.Interfaces;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FichaAcademia.Controllers
 {
+    [Authorize]
     public class ProfessoresController : Controller
     {
         private readonly IProfessorRepositorio _professorRepositorio;
@@ -109,10 +111,10 @@ namespace FichaAcademia.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<JsonResult> Delete(int id)
         {
             await _professorRepositorio.Excluir(id);
-            return RedirectToAction(nameof(Index));
+            return Json("Professor excluído com sucesso!");
         }
 
         public async Task<JsonResult> ProfessorExiste(string nome, int ProfessorId)

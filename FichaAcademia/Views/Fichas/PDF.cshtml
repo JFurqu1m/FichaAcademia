@@ -4,6 +4,7 @@
     Layout = null;
 }
 
+
 <!DOCTYPE html>
 
 <html>
@@ -16,23 +17,23 @@
 
     <div class="collection">
         <div class="collection-item">
-            @await Component.InvokeAsync("DadosAluno", Model.AlunoId)
+            @await Component.InvokeAsync("DadosAlunoPDF", Model.AlunoId)
         </div>
 
-        <div class="row collection-item">
+        <div class="row collection-item" >
             <div class="col s6">
-                <p><strong>Cadastro : </strong>@Model.Cadastro</p>
+                <p style="color:black"><strong>Cadastro : </strong>@Model.Cadastro</p>
             </div>
 
             <div class="col s6">
-                <p><strong>Validade : </strong>@Model.Validade</p>
+                <p style="color:black"><strong>Validade : </strong>@Model.Validade</p>
             </div>
         </div>
     </div>
 
     <div class="collection">
-        <div class="collection-item">
-            @await Component.InvokeAsync("ListagemExercicioFicha", Model.FichaId)
+        <div class="collection-item" style="color:black">
+            @await Component.InvokeAsync("ListagemExercicioFichaPDF", Model.FichaId)
         </div>
     </div>
 

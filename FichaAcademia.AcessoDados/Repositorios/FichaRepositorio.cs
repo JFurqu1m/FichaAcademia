@@ -18,9 +18,9 @@ namespace FichaAcademia.AcessoDados.Repositorios
             _contexto = contexto;
         }
 
-        public async Task<bool> FichaExiste(string Nome)
+        public async Task<bool> FichaExisteAluno(string Nome, int AlunoId)
         {
-            return await _contexto.Fichas.AnyAsync(f => f.Nome == Nome);
+            return await _contexto.Fichas.AnyAsync(f => f.Nome == Nome && f.AlunoId == AlunoId);
         }
 
         public async  Task<bool> FichaExiste(string Nome, int FichaId)
@@ -28,9 +28,9 @@ namespace FichaAcademia.AcessoDados.Repositorios
             return await _contexto.Fichas.AnyAsync(f => f.Nome == Nome && f.FichaId != FichaId);
         }
 
-        public async Task<Ficha> PegarFichaPeloId(int id)
+        public async Task<Ficha> PegarFichaAlunoId(int id)
         {
-            return await _contexto.Fichas.Include(F => F.Aluno).FirstOrDefaultAsync(F => F.AlunoId == id);
+            return await _contexto.Fichas.Include(F => F.Aluno).FirstOrDefaultAsync(F => F.FichaId == id);
         }
 
         public async Task<IEnumerable<Ficha>> PegarTodasFichasAlunoId(int id)

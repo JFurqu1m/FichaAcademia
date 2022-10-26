@@ -7,24 +7,24 @@
 <div class="container">
     <div class="row">
         <div class="col s12">
-            <div class="collection with-header">
-                <h6 class="collection-header">Atualizar @Model.Nome</h6>
+            <div class="collection with-header grey darken-3">
+                <h6 class="collection-header grey darken-3" style="color:whitesmoke">Atualizar a ficha: @Model.Nome</h6>
                 <form asp-action="Edit">
-                    <div class="collection-item">
+                    <div class="collection-item grey darken-3">
                         <div asp-validation-summary="ModelOnly" class="red-text darken-3"></div>
                         <input type="hidden" asp-for="FichaId" />
                         <div class="row">
                             <div class="input-field">
-                                <input asp-for="Nome" class="validate" id="Nome" />
-                                <label for="Nome">Nome</label>
+                                <input asp-for="Nome" class="validate"   style="color:whitesmoke" id="Nome" />
+                                <label for="Nome"  style="color:whitesmoke">Nome</label>
                                 <span asp-validation-for="Nome" class="red-text darken-3"></span>
                             </div>
                         </div>
 
                         <input asp-for="AlunoId" type="hidden" />
 
-                        <div class="collection-item">
-                            <input type="submit" value="Atualizar" class="btn-small blue darken-3" /> &nbsp;
+                        <div class="collection-item grey darken-3" style="text-align:right">
+                            <input type="submit" value="Atualizar" class="btn-small purple darken-1"  /> &nbsp;
                             <a asp-action="Index" asp-route-AlunoId="@Model.AlunoId" class="btn-small grey darken-1">Voltar</a>
                         </div>
                     </div>

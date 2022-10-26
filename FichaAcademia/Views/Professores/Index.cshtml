@@ -1,19 +1,49 @@
 ﻿@model IEnumerable<FichaAcademia.Dominio.Models.Professor>
 
 @{
-    ViewData["Title"] = "Professores Cadastrados";
+    ViewData["Title"] = "Professores";
 }
 
-<h5>Professores Cadastrados</h5>
+
+<style>
+    th {
+        color: whitesmoke;
+        text-align: center;
+    }
+
+    td {
+        color: whitesmoke;
+        text-align: center;
+    }
+    table.highlight > tbody > tr:hover {
+        background-color: #202020 !important;
+    }
+
+    table.highlight > tbody > tr {
+        color: dimgrey !important;
+    }
+</style>
+
+
+<div class="row">
+    <div class="col s12">
+
+    </div>
+</div>
+
 
 <p>
-    <a asp-action="Create" class="btn-small green darken-2">Novo Professor</a>
+    <h5 style="color:white;text-align:right;margin-right:50px">
+        Adicionar Novo Professor &nbsp;
+        <a asp-action="Create" class="btn-floating btn-medium waves-effect waves-light purple darken-1"><i class="material-icons">add</i></a>
+    </h5>
+
 </p>
-<table class="table striped hover highlight">
+<table class="table card-panel grey darken-3 hover highlight">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Foto)
+               
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Nome)
@@ -32,7 +62,7 @@
         {
             <tr>
                 <td>
-                    <img src="@Url.Content(item.Foto)" class="circle" height="100" width="150" />
+                    <img src="@Url.Content(item.Foto)" class="circle" height="80" width="110" />
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Nome)
@@ -44,8 +74,14 @@
                     @Html.DisplayFor(modelItem => item.Turno)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.ProfessorId" class="btn-small light-blue darken-2">Atualizar</a> &nbsp;
-                    <a onclick="ExibirModal(@item.ProfessorId, '@item.Nome')" class="btn-small red darken-2">Excluir</a>
+                    <a asp-action="Edit" asp-route-id="@item.ProfessorId" class="btn-floating waves-effect waves-light purple darken-1"
+                       data-toggle="tooltip" data-position="right" data-tooltip="Editar cadastro do Professor"><i class="material-icons">edit</i></a> &nbsp;
+
+                    <a onclick="ExibirModal(@item.ProfessorId, '@item.Nome')" class="btn-floating waves-effect waves-light red darken-4"
+                       data-toggle="tooltip" data-position="right" data-tooltip="Excluir Professor">
+                        <i class="material-icons">clear</i>
+                    </a>
+                  
                 </td>
             </tr>
         }
@@ -53,14 +89,14 @@
 </table>
 
 
-<div id="modal1" class="modal">
+<div id="modal1" class="modal grey darken-3" style="border-radius:20px;width:35%">
     <div class="modal-content">
-        <h4>Confirmar exclusão</h4>
-        <p>Deseja prosseguir com a exclusão de <b class="nome"></b> ? </p>
+        <h5 style="color:whitesmoke">Excluir Professor</h5>
+        <p style="color:whitesmoke">Deseja prosseguir com a exclusão do professor <b class="nome"></b> ? </p>
     </div>
-    <div class="modal-footer">
-        <a class="modal-close btn green accent-4">Não</a>
-        <a class="modal-close btn red accent-4 btnConfirmar">Sim</a>
+    <div class="modal-footer grey darken-3">
+        <a class="btn-small modal-close btn red darken-4 btnConfirmar" style="border-radius: 25px; ">Sim</a>&nbsp;
+        <a class="btn-small modal-close btn grey darken-2" style="border-radius: 25px; margin-right: 15px">Não</a>
     </div>
 </div>
 
@@ -68,6 +104,9 @@
 {
 
     <script>
+
+        $('[data-toggle="tooltip"]').tooltip();
+
         $(document).ready(function () {
             $(".modal").modal();
         })

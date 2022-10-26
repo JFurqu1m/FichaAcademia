@@ -9,8 +9,8 @@ namespace FichaAcademia.AcessoDados.Interfaces
     public interface IFichaRepositorio : IRepositorioGenerico<Ficha>
     {
         Task<IEnumerable<Ficha>> PegarTodasFichasAlunoId(int id);
-        Task<Ficha> PegarFichaPeloId(int id);
-        Task<bool> FichaExiste(string Nome);
+        Task<Ficha> PegarFichaAlunoId(int id);
+        Task<bool> FichaExisteAluno(string Nome, int AlunoId);
         Task<bool> FichaExiste(string Nome, int FichaId);
     }
 }

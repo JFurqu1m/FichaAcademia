@@ -57,3 +57,5 @@ C:\Users\JFurqu1m\Desktop\Course\FichaAcademia\FichaAcademia\obj\Debug\netcoreap
 C:\Users\JFurqu1m\Desktop\Course\FichaAcademia\FichaAcademia\obj\Debug\netcoreapp2.1\Razor\Views\Fichas\Details.cshtml.g.cs
 C:\Users\JFurqu1m\Desktop\Course\FichaAcademia\FichaAcademia\obj\Debug\netcoreapp2.1\Razor\Views\Exercicios\Listagem.cshtml.g.cs
 C:\Users\JFurqu1m\Desktop\Course\FichaAcademia\FichaAcademia\obj\Debug\netcoreapp2.1\Razor\Views\Fichas\PDF.cshtml.g.cs
+C:\Users\JFurqu1m\Desktop\Course\FichaAcademia\FichaAcademia\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\DadosAlunoPDF\Default.cshtml.g.cs
+C:\Users\JFurqu1m\Desktop\Course\FichaAcademia\FichaAcademia\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\ListagemExercicioFichaPDF\Default.cshtml.g.cs

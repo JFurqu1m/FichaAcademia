@@ -8,12 +8,14 @@
     ".NETCoreApp,Version=v2.1": {
       "FichaAcademia.Dominio/1.0.0": {
         "dependencies": {
+          "BuildBundlerMinifier-Typescript": "2.1.258",
           "Microsoft.AspNetCore.Mvc": "2.1.0"
         },
         "runtime": {
           "FichaAcademia.Dominio.dll": {}
         }
       },
+      "BuildBundlerMinifier-Typescript/2.1.258": {},
       "Microsoft.AspNetCore.Antiforgery/2.1.0": {
         "dependencies": {
           "Microsoft.AspNetCore.DataProtection": "2.1.0",
@@ -1511,6 +1513,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "BuildBundlerMinifier-Typescript/2.1.258": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GKfuqAEBxRwjiEWVu3X6AFPFA72ZOc7KEhAtcAtMgvVdWyMnhI3+jgoVUplHQ3vbZ6eYfCJJZvqQC9SW74/LoQ==",
+      "path": "buildbundlerminifier-typescript/2.1.258",
+      "hashPath": "buildbundlerminifier-typescript.2.1.258.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Antiforgery/2.1.0": {
       "type": "package",

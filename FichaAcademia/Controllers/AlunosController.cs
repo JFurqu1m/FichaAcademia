@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using FichaAcademia.AcessoDados;
 using FichaAcademia.Dominio.Models;
 using FichaAcademia.AcessoDados.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FichaAcademia.Controllers
 {
+    [Authorize]
     public class AlunosController : Controller
     {
         private readonly IAlunoRepositorio _alunoRepositorio;
@@ -86,10 +88,10 @@ namespace FichaAcademia.Controllers
 
        
         [HttpPost]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<JsonResult> Delete(int id)
         {
             await _alunoRepositorio.Excluir(id);
-            return RedirectToAction(nameof(Index));
+            return Json("Aluno excluído com sucesso!");
         }
 
         public async Task<JsonResult> AlunoExiste(string NomeCompleto, int AlunoId)

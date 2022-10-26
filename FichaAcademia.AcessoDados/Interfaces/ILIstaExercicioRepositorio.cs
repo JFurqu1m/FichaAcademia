@@ -8,6 +8,6 @@ namespace FichaAcademia.AcessoDados.Interfaces
 {
     public interface ILIstaExercicioRepositorio : IRepositorioGenerico<ListaExercicio>
     {
-        Task<bool> ExercicioExisteNaFicha(int exercicioId);
+        Task<bool> ExercicioExisteNaFicha(int exercicioId, int fichaID);
     }
 }
